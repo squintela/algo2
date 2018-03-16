@@ -48,22 +48,48 @@ class triangulo
 	{
 		return(sqrt(altura*altura+base*base));
 	}
+	bool iguales(triangulo t1)
+	{
+		if(t1.getbase()==getbase()&& 
+			t1.getaltura()==getaltura())
+		{
+			return true;
+		}else{return false;}
+	}
 
 };  //end class
 
 void main()
 {float a,b;
-	triangulo t1;
+	triangulo t1,t2;
 	cout<<"Ingrese la base: ";
 	cin>>b;
 	t1.setbase(b);
 	cout<<"Ingrese la altura: ";
 	cin>>a;
 	t1.setaltura(a);
+
+	cout<<"Ingrese la base: ";
+	cin>>b;
+	t2.setbase(b);
+	cout<<"Ingrese la altura: ";
+	cin>>a;
+	t2.setaltura(a);
+	
+	if(t2.iguales(t1))
+	{
+		cout<<"los triangulos son iguales ";
+	}else{cout<<"no son iguales ";}
+	cout<<endl;
 	float at=t1.area();
-	cout<<"el area es: "<<at<<endl;
+	cout<<"el area(A1) es: "<<at<<endl;
 	float r=t1.hipotenusa();
-	cout<<"la hipotenusa es: "<<r;
+	cout<<"la hipotenusa(H1) es: "<<r;
+	cout<<endl;
+	float at2=t2.area();
+	cout<<"el area(A2) es: "<<at2<<endl;
+	float r2=t2.hipotenusa();
+    cout<<"la hipotenusa(H2) es: "<<r2;
 
 
 getch();
