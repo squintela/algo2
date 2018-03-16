@@ -56,6 +56,10 @@ class triangulo
 			return true;
 		}else{return false;}
 	}
+	float perimetro()
+	{
+		return (base+altura+hipotenusa());
+	}
 
 };  //end class
 
@@ -85,11 +89,15 @@ void main()
 	cout<<"el area(A1) es: "<<at<<endl;
 	float r=t1.hipotenusa();
 	cout<<"la hipotenusa(H1) es: "<<r;
+	float p=t1.perimetro();
+	cout<<"el perimetro p1: "<<p;
 	cout<<endl;
 	float at2=t2.area();
 	cout<<"el area(A2) es: "<<at2<<endl;
 	float r2=t2.hipotenusa();
     cout<<"la hipotenusa(H2) es: "<<r2;
+	float p2=t2.perimetro();
+	cout<<"el perimetro (p2) es: "<<p2;
 
 
 getch();
