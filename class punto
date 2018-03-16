@@ -1,0 +1,144 @@
+#include "stdafx.h"
+#include "iostream"
+#include "conio.h"
+
+using namespace std;
+
+
+
+class punto
+{
+private:
+    int x;
+    int y;
+public:
+    punto()
+    {
+        x=0;
+        y=0;
+    }
+
+    //metodos sets (ponedoras)
+    void setX(int a )
+    { x=a; }
+    void setY(int b)
+    { y=b; }
+    //metodos gets (selectoras)
+    int getX()
+    {return x;}
+    int getY()
+    {return y;}
+
+
+    //metodos de la clase
+    float distancia (punto p1)
+    {
+        int a1=p1.getX();
+        int b1=p1.getY();
+        int a2=getX();
+        int b2=getY();
+        return sqrtf((a2-a1)*(a2-a1)+(b2-b1)*(b2-b1));
+    }
+
+	bool verificarCuadrado(punto p1,punto p2,punto p3)
+	{
+		int a1=p1.getX();
+        int b1=p1.getY();
+        
+		int a2=getX();
+        int b2=getY(); 
+		
+		int a3=p3.getX();
+        int b3=p3.getY();
+        
+		int a4=getX();
+        int b4=getY();
+		
+		if((a1==a2==a3==a4)&&(b1==b2==b3==b4))
+		{
+			return true;
+		}
+		else
+			return false;
+
+	}
+
+
+	void verificarLinea(punto p1)
+	{
+
+		int a1=p1.getX();
+        int b1=p1.getY();
+        
+		int a2=getX();
+        int b2=getY(); 
+
+		if(a1==a2)
+		{
+			cout<<"Su linea es HORIZONTAL";
+		}
+		else
+		{
+			if(b1==b2)
+			cout<<"Su linea es VERTICAL";
+		}
+	}
+
+
+};
+
+
+
+void main ()
+{
+    int a,b;
+    punto p1,p2,p3,p4;
+	
+    cout<<"Introduzca un punto 1"<<endl;
+    cout<<"x=";
+    cin>>a;
+    p1.setX(a);
+    cout<<"Y=";
+    cin>>b;
+    p1.setY(b);
+
+    cout<<"Introduzca un punto 2"<<endl;
+    cout<<"x=";
+    cin>>a;
+    p2.setX(a);
+    cout<<"Y=";
+    cin>>b;
+    p2.setY(b);
+
+	    cout<<"Introduzca un punto 3"<<endl;
+    cout<<"x=";
+    cin>>a;
+    p2.setX(a);
+    cout<<"Y=";
+    cin>>b;
+    p2.setY(b);
+
+	    cout<<"Introduzca un punto 4"<<endl;
+    cout<<"x=";
+    cin>>a;
+    p2.setX(a);
+    cout<<"Y=";
+    cin>>b;
+    p2.setY(b);
+	
+    float d=p2.distancia(p1);
+    cout<<"la distancia es"<<d;
+   cout<<endl;
+	if(p4.verificarCuadrado(p1,p2,p3)==true)
+	{
+		cout<<"ES CUADRADO";
+	}
+	else
+		cout<<"NO ES CUADRADO";
+
+
+	p2.verificarLinea(p1);
+
+    getch();
+}
+
