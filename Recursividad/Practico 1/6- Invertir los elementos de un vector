@@ -1,0 +1,57 @@
+// Practico1E4.cpp : Defines the entry point for the console application.
+//
+
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+void cargar(int v[],int n)
+{int c=0;
+	while(c<n)
+	{	cout<<"V["<<c+1<<"]";
+		cin>>v[c];
+		c++;
+	}
+	
+}
+void mostrar(int v[],int n)
+{int c=0;
+	while(c<n)
+	{
+		cout<<v[c]<<" ";
+		c++;
+	}
+	
+}
+
+void invertir(int v[],int i,int k)
+{int n=k-i+1;
+
+if(n>1)
+{{
+	invertir(v,i+1,k-1);
+	int aux=v[i];
+	v[i]=v[k];
+	v[k]=aux;
+}
+}
+}
+void main()
+{int n,v[100];
+	
+	cout<<"Ingrese el tamaño del vector ";
+	cin>>n;
+	int i=0,k=n-1;
+	cout<<"Cargue el vector ";
+	cargar(v,n);
+	cout<<"El vector "<<endl;
+	mostrar(v,n);
+    cout<<endl<<" invertido es : "<<endl;
+	invertir(v,i,k);
+	mostrar(v,n);
+	getch();
+}
