@@ -1,0 +1,40 @@
+// Practico1E2.cpp : Defines the entry point for the console application.
+//
+//Verificar si los dígitos de un número están ordenados ascendentemente.
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+bool orden(int n);
+
+void main()
+{int n;
+	cout<<"Ingrese un numero :";
+	cin>>n;
+	if(orden(n))
+	{
+		cout<<"El numero esta ordenado ascendentemente ";
+	}else{
+			cout<<"El numero no esta ordenado ";
+		 }
+	getch();
+}
+
+bool orden(int n)
+{
+	if(n<10)
+	{
+		return true;
+	}else{
+			bool x=orden(n/10);
+			if(n%10>(n/10)%10&&(n/10)%10>x==true)
+			{
+				return true;
+			}else{
+				 return false;
+			     }
+		 }
+}
