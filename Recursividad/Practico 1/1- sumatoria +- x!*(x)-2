@@ -1,0 +1,56 @@
+// Practico1E1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+int factorial(int n)
+{	
+	if(n<0)
+		{return -1;
+		}else{	
+			if(n==0)
+			{
+				return 1;
+
+			}else{		
+			int f=factorial(n-1);
+			return n*f;
+			}
+	}}
+
+float sumatoria(int n)
+{  
+	if(n<=0)
+	{
+		return 0;
+	}else{  
+			float s=sumatoria(n-1);
+			if((n%2)==0)
+			{
+				return (factorial(n)/powf(n,2))+s;
+			}else{
+				return ((-1*(factorial(n)/powf(n,2)))+s);
+				 }
+		
+		 }
+
+}
+
+void main()
+{int n;
+ float s;
+
+	
+	cout<<"Ingrese el numero enensimo de la sumatoria ";
+	cin>>n;
+	cout<<"la sumatoria es: "<<sumatoria(n);
+	
+
+  getch();
+}
+
