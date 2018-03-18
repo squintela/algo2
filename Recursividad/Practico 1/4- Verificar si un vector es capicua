@@ -1,0 +1,59 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+void cargar(int v[], int n)
+{
+	int c = 0;
+	while (c<n)
+	{
+		cout << "V[" << c + 1 << "]";
+		cin >> v[c];
+		c++;
+	}
+
+}
+void mostrar(int v[], int n)
+{
+	int c = 0;
+	while (c<n)
+	{
+		cout << v[c] << " ";
+		c++;
+	}
+
+}
+
+bool verfcapicua(int v[], int i, int k)
+{
+	if (i == k)
+	{
+		return true;
+	}else {
+			bool x = verfcapicua(v, i + 1, k - 1);
+			if (v[i] == v[k])
+				return true;
+			else return false;
+		  }
+		  
+}
+
+void main()
+{
+	int n, v[100],i=0,k;
+	bool x;
+	cout << "ingrese el tamaño del vector";
+	cin >> n;
+	cout << "Cargue el vector ";
+	cargar(v, n);
+	k = n - 1;
+	x=verfcapicua(v, i, k);
+	if (x)
+		cout << "el vector es capicua ";
+	else
+		cout << "el vector no es capicua";
+
+
+	_getch();
+}
