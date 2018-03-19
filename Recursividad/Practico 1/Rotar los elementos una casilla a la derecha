@@ -1,0 +1,65 @@
+// Practico1E5.cpp : Defines the entry point for the console application.
+//Rotar los elementos de un vector
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+void cargar(int v[], int n)
+{
+	int c = 0;
+	while (c < n)
+	{
+		cout << "V[" << c + 1 << "]";
+		cin >> v[c];
+		c++;
+	}
+
+}
+void mostrar(int v[], int n)
+{
+	int c = 0;
+	while (c < n)
+	{
+		cout << v[c] << " ";
+		c++;
+	}
+
+}
+void rotar(int v[], int n)
+{
+	int aux;
+	if (n == 0)
+	{
+		_getch();
+	}
+	else {
+		if (n == 1)
+		{
+			aux = v[0];
+			v[0] = v[1];
+			v[1] = aux;
+		}
+		else {
+			aux = v[n];
+			v[n] = v[n - 1];
+			v[n - 1] = aux;
+			rotar(v, n - 1);
+		}
+	}
+}
+	void main()
+	{
+		int n, v[100], i = 0, k;
+		cout << "Ingrese el tamaño del vector ";
+		cin >> n;
+		cout << "Cargue el vector ";
+		cargar(v, n);
+		rotar(v, n - 1);
+		cout << "el vecctor rotado es ";
+		mostrar(v, n);
+		_getch();
+	}
+
+
