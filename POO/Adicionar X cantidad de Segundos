@@ -1,0 +1,105 @@
+// AñadirSegundo.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+class time
+{private:
+	int h;
+	int m;
+	int s;
+
+public:
+	time()
+{	
+	h = 0;
+	m = 0;
+	s = 0;
+}
+	void setH(int hora)
+	{
+		h = hora;
+	}
+	void setM(int min)
+	{
+		m = min;
+	}
+	void setS(int seg)
+	{
+		s = seg;
+	}
+	int getH()
+	{
+		return h;
+	}
+	int getM()
+	{
+		return m;
+	}
+	int getS()
+	{
+		return s;
+	}
+
+	void addtime()
+	{
+		cout << "Ingrese la hora: ";
+		do {
+			cin >> h;
+		} while (h > 23 || h<0);
+		cout << "Ingrese los minutos: ";
+		do {
+			cin >> m;
+		} while (m > 59 || m<0);
+		cout << "Ingrese los segundos: ";
+		do {
+			cin >> s;
+		} while (s > 59 ||s<0);
+	}
+
+	void mostrar()
+	{
+		cout << "H: " << h<<" M: "<<m<<" S: "<<s;
+	}
+
+	void addS(int k)
+	{
+		for (int i = 0; i < k; i++)
+		{
+			s = s + 1;
+			if (s > 59)
+			{
+				s = 0;
+				m = m + 1;
+				if (m > 59)
+				{
+					m = 0;
+					h = h + 1;
+					if (h > 23)
+					{
+						h = 0;
+					}
+				}
+			}
+		}
+	}
+
+};
+
+void main()
+{
+	int k;
+	time t;
+	t.addtime();
+	cout << "cuantos segundos desea adicionar? ";
+	cin >> k;
+	t.addS(k);
+	t.mostrar();
+
+	_getch();
+}
+
