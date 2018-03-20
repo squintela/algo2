@@ -1,0 +1,109 @@
+// class Fecha.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+const int endMes[13] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
+class Fecha
+{
+private:
+		int dia;
+		int mes;
+		int año;
+public:
+		Fecha()
+{		dia = 1;
+		mes = 1;
+		año = 1; 
+}
+		void setDia(int d)
+		{
+			dia = d;
+		}
+		void setMes(int m)
+		{
+			mes = m;
+		}
+		void setAño(int a)
+		{
+			año = a;
+		}
+		int getDia()
+		{
+			return dia;
+		}
+		int getMes()
+
+		{
+			return mes;
+		}
+		int getAño()
+		{
+			return año;
+		}
+		void leerfecha()
+		{
+			int a, m, d;
+			cout << "Ingrese el año: ";
+			cin >> a;
+			setAño(a);
+			do {
+				cout << "Ingrese el Mes: ";
+				cin >> m;
+				setMes(m);
+
+			} while (m > 12);
+			do {
+				cout << "ingrese el dia: ";
+				cin >> d;
+				setDia(d);
+			} while (d > endMes[m]);
+
+		}
+		void mostar()
+		{
+			cout << "dia: " << dia<<" mes: "<<mes<<" año: "<<año<<endl;
+			
+		}
+
+		void add()
+		{
+			int d = getDia();
+			int m = getMes();
+			int a = getAño();
+			
+			d = d + 1;
+			setDia(d);
+
+			if (d > endMes[m] && m == 12)
+			{
+				d = 1;
+				a = a + 1;
+				m = m;
+				setAño(a);
+				setMes(m);
+				setDia(d);
+			}
+			if (d > endMes[m] && m < 12)
+			{
+				m = m + 1;
+				d = d + 1;
+				setMes(m);
+				setDia(d);
+			}
+			
+		}
+};
+		
+
+void main()
+{
+	Fecha f;
+	f.leerfecha();
+	f.add();
+	f.mostar();
+	_getch();
+}
