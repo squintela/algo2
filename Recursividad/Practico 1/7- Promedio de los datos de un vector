@@ -1,0 +1,55 @@
+// Practico1E7.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void cargar(int v[], int n)
+{
+	int c = 0;
+	while (c < n)
+	{
+		cout << "V[" << c + 1 << "]";
+		cin >> v[c];
+		c++;
+	}
+
+}
+void mostrar(int v[], int n)
+{
+	int c = 0;
+	while (c < n)
+	{
+		cout << v[c] << " ";
+		c++;
+	}
+
+}
+
+float promedio(int v[], int n)
+{
+	if (n == 1)
+	{
+		return v[0];
+	}
+	else {
+		float x = promedio(v, n - 1);
+		return(x*n - 1 + v[n - 1]) / n;
+		 }
+}
+void main()
+{
+	int n, v[100];
+
+	cout << "Ingrese el tamaño del vector ";
+	cin >> n;
+	cout << "Cargue el vector";
+	cargar(v, n);
+	promedio(v, n);
+	cout<<"el promedio es de los datos del vector es: "<< promedio(v, n);
+	_getch();
+
+}
